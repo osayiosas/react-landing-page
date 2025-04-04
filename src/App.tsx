@@ -1,9 +1,12 @@
+import { Layout } from "./components/layout";
+import { Hero } from "./components/sections/Hero";
 
-
-const App = () => {
+function App() {
   return (
-    <div>hello</div>
-  )
+    <Layout title="AfriAI">
+      <Hero />
+    </Layout>
+  );
 }
 
-export default App
+export default App;
