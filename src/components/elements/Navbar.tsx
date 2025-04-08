@@ -1,6 +1,8 @@
 import { Container } from "../shared/container";
 
 import logo from "../../assets/logo.svg";
+import { NavItem } from "../shared/NavItem";
+import { BtnLink } from "../shared/BtnLink";
 
 const navItems = [
   { href: "#", text: "Home" },
@@ -16,19 +18,24 @@ export const Navbar = () => {
           {/* logo */}
           <div className="min-w-max inline-flex relative">
             <a href="/" className="relative flex items-center gap-3">
-              <img src={logo} alt="logo"  className="w-10 h-10"/>
+              <img src={logo} alt="logo" className="w-10 h-10" />
+              <div className="inline-flex text-lg font-semibold text-heading-1">
+                AfriAi
+              </div>
             </a>
           </div>
-          {/* navigation links */}
-          <ul className="flex gap-4">
-            {navItems.map((item) => (
-              <li key={item.text}>
-                <a href={item.href} className="text-gray-700 hover:text-gray-900">
-                  {item.text}
-                </a>
-              </li>
-            ))}
-          </ul>
+
+          <div className="flex flex-col lg:flex-row w-full lg:justify-between lg:items-center absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden">
+            <ul className=" border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-center lg:items-center">
+              {navItems.map((item, key) => (
+                <NavItem href={item.href} text={item.text} key={key} />
+              ))}
+            </ul>
+
+            <div className="lg:min-w-max flex items-center sm;W-max w-full pb-6 lg:pb-0 border-b border-box-border  lg:border-0  px-6 lg:px-0">
+               <BtnLink  text="Get Started" href="#cta"/>  
+            </div>
+          </div>
         </nav>
       </Container>
     </header>
